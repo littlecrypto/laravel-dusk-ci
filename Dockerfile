@@ -55,8 +55,6 @@ ADD commands/xvfb.init.sh /etc/init.d/xvfb
 
 ADD commands/start-nginx-ci-project.sh /usr/bin/start-nginx-ci-project
 
-ADD configs/.bowerrc /root/.bowerrc
-
 RUN chmod +x /usr/bin/start-nginx-ci-project
 
 RUN \
@@ -87,7 +85,6 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -yq yarn
-RUN yarn global add bower --network-concurrency 1
 RUN wget https://phar.phpunit.de/phpunit.phar
 RUN chmod +x phpunit.phar
 RUN mv phpunit.phar /usr/local/bin/phpunit
@@ -114,7 +111,6 @@ RUN yarn --version
 RUN nginx -v
 RUN nodejs --version
 RUN npm --version
-RUN bower --version
 RUN phpunit --version
 RUN node-sass --version
 RUN gulp --version
