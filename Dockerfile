@@ -85,12 +85,7 @@ RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources
 RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
 RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
 RUN apt-get update && apt-get install -yq yarn
-RUN wget https://phar.phpunit.de/phpunit.phar
-RUN chmod +x phpunit.phar
-RUN mv phpunit.phar /usr/local/bin/phpunit
 
-RUN npm install -g node-gyp
-RUN npm install -g node-sass
 RUN npm install -g gulp
 
 RUN apt-get install -y supervisor
@@ -111,8 +106,6 @@ RUN yarn --version
 RUN nginx -v
 RUN nodejs --version
 RUN npm --version
-RUN phpunit --version
-RUN node-sass --version
 RUN gulp --version
 
 EXPOSE 80 9515

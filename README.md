@@ -18,7 +18,6 @@ You are encouraged to use this for testing purposes in **gitlab ci environments*
 | NODEJS    | 6.11.3  |
 | NPM       | 3.10.10 |
 | YARN      | 1.1.0   |
-| BOWER     | 1.8.2   |
 | PHPUNIT   | 6.3.1   |
 | NODE-SASS | 4.5.3   |
 | GULP      | 3.9.1   |
@@ -67,8 +66,6 @@ Finally you can run all your tests served by nginx | php-fpm via:
 
 `- composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts`
 
-
-`- bower install --quiet`
 
 `- npm run dev ` or if you are on yarn registry `- yarn run dev `
 
