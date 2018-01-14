@@ -1,6 +1,5 @@
 
 FROM ubuntu:xenial
-MAINTAINER Chilio 
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NONINTERACTIVE_SEEN true
@@ -20,8 +19,23 @@ RUN sed -i'' 's/archive\.ubuntu\.com/us\.archive\.ubuntu\.com/' /etc/apt/sources
 RUN apt-get update
 RUN apt-get upgrade -yq
 RUN apt-get install -yq libgd-tools
-RUN apt-get install -yq --fix-missing php7.1-fpm php7.1-cli php7.1-xml php7.1-zip php7.1-curl php7.1-bcmath php7.1-json \
-    php7.1-mbstring php7.1-pgsql php7.1-mysql php7.1-mcrypt php7.1-gd php-xdebug php-imagick imagemagick nginx
+RUN apt-get install -yq --fix-missing \
+    php7.1-bcmath \
+    php7.1-cli \
+    php7.1-curl \
+    php7.1-fpm \
+    php7.1-gd \
+    php7.1-json \
+    php7.1-mbstring \
+    php7.1-mcrypt \
+    php7.1-mysql \
+    php7.1-pgsql \
+    php7.1-soap \
+    php7.1-xml \
+    php7.1-zip \
+    php-imagick \
+    imagemagick \
+    nginx
 
 RUN apt-get install -yq mc lynx mysql-client bzip2 make g++
 
@@ -35,18 +49,15 @@ RUN \
   && php -r "if (hash('SHA384', file_get_contents('/tmp/composer-setup.php')) \
     !== trim(file_get_contents('/tmp/composer-setup.sig'))) { unlink('/tmp/composer-setup.php'); \
     echo 'Invalid installer' . PHP_EOL; exit(1); }" \
-  && php /tmp/composer-setup.php --filename=composer --install-dir=$COMPOSER_HOME 
+  && php /tmp/composer-setup.php --filename=composer --install-dir=$COMPOSER_HOME
 
-ADD commands/xvfb.init.sh /etc/init.d/xvfb 
+ADD commands/xvfb.init.sh /etc/init.d/xvfb
 
 ADD commands/start-nginx-ci-project.sh /usr/bin/start-nginx-ci-project
 
 ADD configs/.bowerrc /root/.bowerrc
 
 RUN chmod +x /usr/bin/start-nginx-ci-project
-ADD commands/configure-laravel.sh /usr/bin/configure-laravel
-
-RUN chmod +x /usr/bin/configure-laravel
 
 RUN \
   apt-get install -yq xvfb gconf2 fonts-ipafont-gothic xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base \
@@ -66,7 +77,7 @@ RUN \
 
 RUN apt-get install -yq apt-transport-https
 RUN apt-get install -yq  python-software-properties
-RUN curl -sL https://deb.nodesource.com/setup_6.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_9.x | bash -
 RUN apt-get update
 RUN apt-get install -yq nodejs
 RUN apt-get install -yq git
@@ -89,7 +100,8 @@ RUN apt-get install -y supervisor
 
 ADD configs/supervisord.conf /etc/supervisor/supervisord.conf
 
-ADD configs/nginx-default-site /etc/nginx/sites-available/default 
+ADD configs/nginx-default-site /etc/nginx/sites-available/backend
+ADD configs/nginx-default-site /etc/nginx/sites-available/frontend
 
 VOLUME [ "/var/log/supervisor" ]
 
