@@ -9,6 +9,8 @@ Versions: [![](https://images.microbadger.com/badges/version/chilio/laravel-dusk
 
 **Laravel dusk**? Find more on [laravel site](https://laravel.com/docs/5.5/dusk) 
 
+You are encouraged to use this for testing purposes in **gitlab ci environments**.
+
 **Gitlab**? Find more on [gitlab](https://about.gitlab.com/) 
 
 **Gitlab Continous Integration CI** ? Find more on [gitlab-runner](https://hub.docker.com/r/gitlab/gitlab-runner/)
@@ -36,19 +38,17 @@ If this is helpful to you, you can always add **star** on docker hub, to make it
 
 ### **What's included? (depends on image/tag)**
 
-| FRAMEWORK    | VERSION    |
-| ------------ | ---------- |
-| PHP          | >= 7.1.10  |
-| Xdebug       | >= 2.5.5   |
-| NGINX        | >= 1.10.3  |
-| Chromedriver | >= 2.32    |
-| NODEJS       | >= 6.11.4  |
-| NPM          | >= 3.10.10 |
-| YARN         | >= 1.2.1   |
-| BOWER        | >= 1.8.2   |
-| PHPUNIT      | >= 6.4.1   |
-| NODE-SASS    | >= 4.5.3   |
-| GULP         | >= 3.9.1   |
+| FRAMEWORK | VERSION |
+| --------- | ------- |
+| PHP       | 7.1.9.1 |
+| Xdebug    | 2.5.5   |
+| NGINX     | 1.10.3  |
+| NODEJS    | 6.11.3  |
+| NPM       | 3.10.10 |
+| YARN      | 1.1.0   |
+| PHPUNIT   | 6.3.1   |
+| NODE-SASS | 4.5.3   |
+| GULP      | 3.9.1   |
 
 ### **Available additional commands:**
 
@@ -105,8 +105,6 @@ However, if you encounter problems, especially errors with incorrect chromedrive
 
 `- composer install --prefer-dist --no-ansi --no-interaction --no-progress --no-scripts`
 
-
-`- bower install --quiet`
 
 `- npm run dev ` or if you are on yarn registry `- yarn run dev `
 
