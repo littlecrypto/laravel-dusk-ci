@@ -53,10 +53,10 @@ RUN \
 
 ADD commands/xvfb.init.sh /etc/init.d/xvfb
 
-#ADD commands/start-nginx-ci-project.sh /usr/bin/start-nginx-ci-project
-#
-#RUN chmod +x /usr/bin/start-nginx-ci-project
-#
+ADD commands/start-nginx-ci-project.sh /usr/bin/start-nginx-ci-project
+
+RUN chmod +x /usr/bin/start-nginx-ci-project
+
 #RUN \
 #  apt-get install -yq xvfb gconf2 fonts-ipafont-gothic xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base \
 #    xfonts-scalable \
