@@ -89,26 +89,26 @@ RUN apt-get update && apt-get install -yq yarn
 RUN npm install -g gulp webpack
 
 RUN apt-get install -y supervisor
-#
-#ADD configs/supervisord.conf /etc/supervisor/supervisord.conf
-#
-#ADD configs/nginx-default-site /etc/nginx/sites-available/backend
-#ADD configs/nginx-default-site /etc/nginx/sites-available/frontend
-#
-#VOLUME [ "/var/log/supervisor" ]
-#
-#RUN apt-get -yq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-#RUN apt-get upgrade
-#RUN apt-get autoremove
-#
-#RUN php --version
-#RUN yarn --version
-#RUN nginx -v
-#RUN nodejs --version
-#RUN npm --version
-#RUN gulp --version
-#
-#EXPOSE 80 9515
-#
-#CMD ["php7.1-fpm", "-g", "daemon off;"]
-#CMD ["nginx", "-g", "daemon off;"]
+
+ADD configs/supervisord.conf /etc/supervisor/supervisord.conf
+
+ADD configs/nginx-default-site /etc/nginx/sites-available/backend
+ADD configs/nginx-default-site /etc/nginx/sites-available/frontend
+
+VOLUME [ "/var/log/supervisor" ]
+
+RUN apt-get -yq clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+RUN apt-get upgrade
+RUN apt-get autoremove
+
+RUN php --version
+RUN yarn --version
+RUN nginx -v
+RUN nodejs --version
+RUN npm --version
+RUN gulp --version
+
+EXPOSE 80 9515
+
+CMD ["php7.1-fpm", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;"]
