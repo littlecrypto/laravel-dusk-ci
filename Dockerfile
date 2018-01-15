@@ -18,25 +18,25 @@ RUN add-apt-repository ppa:ondrej/php
 RUN sed -i'' 's/archive\.ubuntu\.com/us\.archive\.ubuntu\.com/' /etc/apt/sources.list
 RUN apt-get update
 RUN apt-get upgrade -yq
-#RUN apt-get install -yq libgd-tools
-#RUN apt-get install -yq --fix-missing \
-#    php7.1-bcmath \
-#    php7.1-cli \
-#    php7.1-curl \
-#    php7.1-fpm \
-#    php7.1-gd \
-#    php7.1-json \
-#    php7.1-mbstring \
-#    php7.1-mcrypt \
-#    php7.1-mysql \
-#    php7.1-pgsql \
-#    php7.1-soap \
-#    php7.1-xml \
-#    php7.1-zip \
-#    php-imagick \
-#    imagemagick \
-#    nginx
-#
+RUN apt-get install -yq libgd-tools
+RUN apt-get install -yq --fix-missing \
+    php7.1-bcmath \
+    php7.1-cli \
+    php7.1-curl \
+    php7.1-fpm \
+    php7.1-gd \
+    php7.1-json \
+    php7.1-mbstring \
+    php7.1-mcrypt \
+    php7.1-mysql \
+    php7.1-pgsql \
+    php7.1-soap \
+    php7.1-xml \
+    php7.1-zip \
+    php-imagick \
+    imagemagick \
+    nginx
+
 #RUN apt-get install -yq mc lynx mysql-client bzip2 make g++
 #
 #ENV COMPOSER_HOME /usr/local/share/composer
