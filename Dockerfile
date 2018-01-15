@@ -14,8 +14,3 @@ RUN apt-get update -y
 RUN apt-get install -yq apt-utils zip unzip
 RUN apt-get install -yq openssl language-pack-en-base
 RUN apt-get install -yq software-properties-common curl
-RUN add-apt-repository ppa:ondrej/php
-RUN sed -i'' 's/archive\.ubuntu\.com/us\.archive\.ubuntu\.com/' /etc/apt/sources.list
-RUN apt-get update
-RUN apt-get upgrade -yq
-RUN apt-get install -yq libgd-tools
