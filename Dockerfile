@@ -31,10 +31,10 @@ RUN apt-get install -yq --fix-missing \
     php7.1-mysql \
     php7.1-pgsql \
     php7.1-soap \
+    php7.1-sqlite3 \
     php7.1-xml \
     php7.1-zip \
     php-imagick \
-    php-sqlite3 \
     imagemagick \
     nginx
 
