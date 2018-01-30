@@ -36,7 +36,8 @@ RUN apt-get install -yq --fix-missing \
     php7.1-zip \
     php-imagick \
     imagemagick \
-    nginx
+    nginx \
+    sqlite3
 
 RUN apt-get install -yq mysql-client bzip2
 
